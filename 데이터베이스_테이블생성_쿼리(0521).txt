@@ -1,0 +1,93 @@
+CREATE DATABASE 데이터베이스 명;
+
+USE 데이터베이스 명;
+
+CREATE TABLE movies (
+	movies_id INT AUTO_INCREMENT PRIMARY KEY,
+	movies_title VARCHAR(255),
+	movies_title_en VARCHAR(255),
+	movies_year YEAR,
+	movies_description TEXT,
+	movies_rating_symbol INT,
+	movies_score_directing INT,
+	movies_score_movie_story INT,
+ 	movies_score_visual_beauty INT,
+	movies_score_acting INT,
+	movies_score_movie_ost INT,
+	movies_score_naver INT,
+	movies_score_watcha INT,
+	movies_view_male INT,
+	movies_view_female INT,
+	movies_view_10s INT,
+	movies_view_20s INT,
+	movies_view_30s INT,
+	movies_view_40s INT,
+	movies_view_50s INT,
+	movies_poster VARCHAR(800)
+);
+
+CREATE TABLE actors (
+	actors_id INT AUTO_INCREMENT PRIMARY KEY,
+	actors_name VARCHAR(255)
+);
+
+CREATE TABLE genres (
+	genres_id INT AUTO_INCREMENT PRIMARY KEY,
+	genres_name VARCHAR(100)
+);
+
+CREATE TABLE countries (
+	countries_id INT AUTO_INCREMENT PRIMARY KEY,
+	countries_name VARCHAR(100)
+);
+
+CREATE TABLE directors (
+	directors_id INT AUTO_INCREMENT PRIMARY KEY,
+	directors_name VARCHAR(100)
+);
+
+CREATE TABLE otts (
+	otts_id INT AUTO_INCREMENT PRIMARY KEY,
+	otts_name VARCHAR(100)
+);
+
+CREATE TABLE movies_actors (
+	movies_id INT,
+	actors_id INT,
+	PRIMARY KEY (movies_id, actors_id),
+	FOREIGN KEY (movies_id) REFERENCES movies(movies_id),
+	FOREIGN KEY (actors_id) REFERENCES actors(actors_id)
+);
+
+CREATE TABLE movies_genres (
+	movies_id INT,
+	genres_id INT,
+	PRIMARY KEY (movies_id, genres_id),
+	FOREIGN KEY (movies_id) REFERENCES movies(movies_id),
+	FOREIGN KEY (genres_id) REFERENCES genres(genres_id)
+);
+
+CREATE TABLE movies_directors (
+	movies_id INT,
+	directors_id INT,
+	PRIMARY KEY (movies_id, directors_id),
+	FOREIGN KEY (movies_id) REFERENCES movies(movies_id),
+	FOREIGN KEY (directors_id) REFERENCES directors(directors_id)
+);
+
+CREATE TABLE movies_countries (
+	movies_id INT,
+	countries_id INT,
+	PRIMARY KEY (movies_id, countries_id),
+	FOREIGN KEY (movies_id) REFERENCES movies(movies_id),
+	FOREIGN KEY (countries_id) REFERENCES countries(countries_id)
+);
+
+CREATE TABLE movies_otts (
+	movies_id INT,
+	otts_id INT,
+	PRIMARY KEY (movies_id, otts_id),
+	FOREIGN KEY (movies_id) REFERENCES movies(movies_id),
+	FOREIGN KEY (otts_id) REFERENCES otts(otts_id)
+);
+

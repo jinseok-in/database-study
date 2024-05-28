@@ -1,0 +1,33 @@
+INSERT 문
+
+INSERT INTO Countries (country_name) VALUES 
+('United States'),
+('South Korea');
+
+-- Movies 테이블 데이터 삽입
+INSERT INTO Movies (title, release_date, country_id, description) VALUES 
+('Inception', '2010-07-16', 1, 'A mind-bending thriller by Christopher Nolan.'),
+('Parasite', '2019-05-30', 2, 'A dark comedy thriller by Bong Joon Ho.');
+
+-- Actors 테이블 데이터 삽입
+INSERT INTO Actors (actor_id, name, birth_date) VALUES 
+(1, 'Leonardo DiCaprio', '1974-11-11'),
+(2, 'Song Kang-ho', '1967-01-17');
+
+-- Genres 테이블 데이터 삽입
+INSERT INTO Genres (genre_id, genre_name) VALUES 
+(1, 'Sci-Fi'),
+(2, 'Thriller'),
+(3, 'Drama');
+
+-- Movie_Actors 테이블 데이터 삽입
+INSERT INTO Movie_Actors (movie_id, actor_id) VALUES 
+(1, 1), -- Inception에 Leonardo DiCaprio가 출연
+(2, 2); -- Parasite에 Song Kang-ho가 출연
+
+-- Movie_Genres 테이블 데이터 삽입
+INSERT INTO Movie_Genres (movie_id, genre_id) VALUES 
+(1, 1), -- Inception은 Sci-Fi 장르
+(1, 2), -- Inception은 Thriller 장르
+(2, 2), -- Parasite는 Thriller 장르
+(2, 3); -- Parasite는 Drama 장르

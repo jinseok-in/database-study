@@ -1,0 +1,46 @@
+CREATE TABLE userinfo (
+	uesrinfo_id INT,
+	user_id VARCHAR(200),
+	user_sex VARCHAR(100),
+	user age INT
+);
+
+CREATE TABLE comment (
+	comment_id INT,
+	comment_text TEXT
+);
+
+CREATE TABLE customerservice (
+	customerservice_id INT,
+	customerservice_text TEXT
+);
+
+CREATE TABLE keyword (
+	keyword_id INT,
+	keyword_kw VARCHAR(100)
+);
+
+CREATE TABLE userinfo_comment (
+	userinfo_id INT,
+	comment_id INT,
+	PRIMARY KEY (userinfo_id, comment_id),
+	FOREIGN KEY userinfo_id REFERENCES userinfo(userinfo_id),
+	FOREIGN KEY comment_id REFERENCES comment(comment_id)
+);
+
+CREATE TABLE userinfo_customerservice (
+	userinfo_id INT,
+	customerservice_id INT,
+	PRIMARY KEY (userinfo_id, customerservice_id),
+	FOREIGN KEY userinfo_id REFERENCES userinfo(userinfo_id),
+	FOREIGN KEY customerservice_id REFERENCES customerservice(customerservice_id)
+);
+
+CREATE TABLE movies_keyword (
+	movies_id INT,
+	keyword_id INT,
+	PRIMARY KEY (movies_id, keyword_id),
+	FOREIGN KEY movies_id REFORENCES movies(movies_id),
+	FOREIGN KEY keyword_id REFORENCES keyword(keyword_id)
+);
+
